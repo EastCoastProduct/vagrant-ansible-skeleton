@@ -1,0 +1,6 @@
+---
+
+  - name: restart skeleton-api supervisor task
+    supervisorctl: >
+      name='{{ app_and_user_name }}'
+      state=restarted

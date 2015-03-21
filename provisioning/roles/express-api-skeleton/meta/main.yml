@@ -1,0 +1,19 @@
+---
+  # create the supervisor task for this to run in production-like environments
+  dependencies:
+
+    # create user/home for this worker
+    - role: app
+
+    - role: source-files
+
+    # install npm packages for app
+    - role: npm-install
+
+    - role: supervisor-task
+      name: '{{ app_and_user_name }}'
+      process_name: '{{ app_and_user_name }}'
+      command: "node {{ app_home }}/bin/www"
+      directory: "{{ app_home }}"
+      user: '{{ app_and_user_name }}'
+      env_vars: '{{ app_env }}'

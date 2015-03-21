@@ -1,0 +1,11 @@
+---
+  common_packages:
+    - build-essential
+    - git
+    - curl
+    - python-pycurl
+    - python-pip
+    - python-software-properties
+    - python-setuptools
+    - acl
+    - vim

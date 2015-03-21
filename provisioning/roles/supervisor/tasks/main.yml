@@ -1,0 +1,14 @@
+---
+  - name: install supervisor
+    apt: pkg=supervisor state=present update_cache=true
+    sudo: yes
+    register: supervisor_installed
+
+  - name: set syslog acl on supervisor directory so syslog can read
+    acl: >
+      name=/var/log/supervisor
+      permissions=r
+      etype=user
+      default=yes
+      entity=syslog
+      state=present

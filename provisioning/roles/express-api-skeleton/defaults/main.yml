@@ -1,0 +1,7 @@
+---
+  # we use same name for application and user
+  app_and_user_name: express-api-skeleton
+  app_user_home: /usr/local/{{ app_and_user_name }}
+  app_home: /usr/local/{{ app_and_user_name }}/src
+  app_env:
+    HOME: '{{ app_user_home }}'

@@ -1,0 +1,4 @@
+---
+  app_dir: /usr/local
+  app_user_home: '{{ app_dir }}/{{ app_and_user_name }}'
+  app_home: '{{ app_user_home }}/src'

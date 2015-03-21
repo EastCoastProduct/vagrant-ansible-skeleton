@@ -1,0 +1,16 @@
+---
+
+  # user homes for apps live /usr/local
+  - name: create user and home directory
+    user: >
+      name={{ app_and_user_name }}
+      home={{ app_user_home }}
+      createhome=yes
+      shell=/bin/bash
+
+  - name: upload common bash rc file
+    template: >
+      src=commonrc.j2
+      owner={{ app_and_user_name }}
+      group={{ app_and_user_name }}
+      dest={{ app_user_home }}/.commonrc

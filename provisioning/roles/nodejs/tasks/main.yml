@@ -1,0 +1,24 @@
+---
+
+  - name: install dependent packages
+    apt: >
+      name=apt-transport-https
+      state=latest
+      update_cache=yes
+  - name: add apt gpg key
+    apt_key: >
+      url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+      state=present
+  - name: add apt repo
+    apt_repository: >
+      repo='{{ item }}'
+      update_cache=yes
+      state=present
+    with_items:
+      - deb https://deb.nodesource.com/node {{ ansible_distribution_release }} main
+      - deb-src https://deb.nodesource.com/node {{ ansible_distribution_release }} main
+
+  - name: install nodejs
+    apt: >
+      name=nodejs
+      state=latest

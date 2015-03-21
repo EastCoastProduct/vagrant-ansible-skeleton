@@ -1,0 +1,7 @@
+---
+  - name: set owner
+    file: >
+      path=/usr/local/{{ app_and_user_name }}
+      owner={{ app_and_user_name }}
+      group={{ app_and_user_name }}
+      state=directory

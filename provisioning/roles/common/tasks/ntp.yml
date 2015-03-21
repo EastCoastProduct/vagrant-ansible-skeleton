@@ -1,0 +1,12 @@
+---
+
+  - name: ntp packages should be installed
+    apt: pkg={{ item }} state=latest
+    with_items:
+     - ntp
+     - ntpdate
+    notify:
+     - restart ntp
+
+  - name: ntp should be running
+    service: name=ntp state=running

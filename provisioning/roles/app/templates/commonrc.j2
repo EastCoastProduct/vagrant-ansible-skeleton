@@ -1,0 +1,5 @@
+{% if env is defined %}
+    {% for name, value in env.iteritems() %}
+        export {{ name }}="{{ value }}"
+    {% endfor %}
+{% endif %}

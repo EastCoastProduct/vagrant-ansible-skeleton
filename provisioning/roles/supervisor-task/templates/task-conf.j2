@@ -1,0 +1,14 @@
+[program:{{ name }}]
+command={{ command }}
+process_name={{ process_name }}
+directory={{ directory }}
+redirect_stderr={{ redirect_stderr }}
+autostart={{ autostart }}
+autorestart={{ autorestart }}
+user={{ user }}
+numprocs={{ numprocs }}
+stdout_logfile=/var/log/supervisor/%(program_name)s-stdout.log
+stderr_logfile=/var/log/supervisor/%(program_name)s-stderr.log
+{% if env_vars|length > 0 %}
+environment={% for name, value in env_vars.iteritems() %}{{ name }}="{{ value }}"{% if not loop.last %},{% endif %}{% endfor %}
+{% endif %}

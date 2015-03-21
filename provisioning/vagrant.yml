@@ -1,0 +1,13 @@
+---
+
+  - hosts: common-server
+    sudo: yes
+    roles:
+      - role: common
+      - role: supervisor
+      - role: nodejs
+
+  - hosts: skeleton-app
+    sudo: yes
+    roles:
+      - role: express-api-skeleton

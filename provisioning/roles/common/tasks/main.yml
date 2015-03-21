@@ -1,0 +1,15 @@
+---
+
+# apply package updates
+  - name: update apt cache
+    apt:
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - name: install baseline dependences
+    apt: pkg={{ item }} state=latest
+    sudo: yes
+    with_items: common_packages
+
+  - include: ntp.yml
+
