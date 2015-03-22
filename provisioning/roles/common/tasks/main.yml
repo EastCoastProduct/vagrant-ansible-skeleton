@@ -12,4 +12,3 @@
     with_items: common_packages
 
   - include: ntp.yml
-
